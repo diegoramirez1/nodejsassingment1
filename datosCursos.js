@@ -37,8 +37,8 @@ let describirCursoDelay = (curso,callback) => {
 
 let describirCurso = (curso) => {
 		console.log('\n' +
-					'El curso solicitado se llama ' + curso.nombre +
-					' su identificador unico es ' + curso.id +
+					'El curso ' + curso.nombre +
+					' su id es ' + curso.id +
 					' tiene una duracion de ' + curso.duracion +
 					' y un costo de '+ curso.inversion + ' pesos colombianos' + '\n'	
 				   );		   
@@ -49,10 +49,17 @@ let todosCursos = () => {
 	ofertaCursos.forEach( curso => describirCurso(curso));
 }
 
+let validarCursos = (idCurso) => {
+	console.log('Validando que el curso...');
+	
+}
+
+
 module.exports = {
 	ofertaCursos,
 	cursoPorID,
 	describirCurso,
 	describirCursoDelay,
-	todosCursos
+	todosCursos,
+	validarCursos
 };

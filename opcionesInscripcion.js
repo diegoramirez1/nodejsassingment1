@@ -15,10 +15,12 @@ let opciones = {
 	}
 };
 
-let crearArchivoInscripcion = (cedula,curso) => {
+let crearArchivoInscripcion = (nombre,cedula,curso) => {
 	
-	texto = ' la cedula del estudiante es ' + cedula +
+	texto = 'El estudiante ' + nombre +
+			' con cedula ' + cedula +
 			' esta interesado es incribirse en el curso ' + curso.nombre +
+			' con identificar ' + curso.id +
 			' la solicitud fue realizada en fecha ' + Date.now();
 	
 	fs.writeFile('inscripcion-'+curso.id+'-'+cedula+'.txt',texto,(err) => {
@@ -29,7 +31,12 @@ let crearArchivoInscripcion = (cedula,curso) => {
 	
 }
 
+let warningCursoInvalido = (curso) => {
+	console.log('El id '+ curso + ' de momento no esta en nuestra oferta actual, por favor verifique el id y vuelva a intentar' + '\n');
+}
+
 module.exports = {
 	crearArchivoInscripcion,
-	opciones
+	opciones,
+	warningCursoInvalido
 };
