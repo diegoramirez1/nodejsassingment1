@@ -26,20 +26,21 @@ let cursoPorID = (idCurso) => ofertaCursos.find( oferta => oferta.id == idCurso)
 
 let describirCursoDelay = (curso,callback) => {
 	setTimeout(function(){
-			let descripcion ='El curso solicitado se llama ' + curso.nombre +
-					' su identificador unico es ' + curso.id +
-					' tiene una duracion de ' + curso.duracion +
-					' y un costo de '+ curso.inversion + ' pesos colombianos';
+			let descripcion ='El curso solicitado se llama ' + curso.nombre + '\n' +
+					' su identificador unico es ' + curso.id + '\n' +
+					' tiene una duracion de ' + curso.duracion + '\n' +
+					' y un costo de '+ curso.inversion + ' pesos colombianos' + '\n';
 			callback(descripcion);	
 		},2000 * ofertaCursos.indexOf(curso));		   
 }
 
 
 let describirCurso = (curso) => {
-		console.log('El curso solicitado se llama ' + curso.nombre +
+		console.log('\n' +
+					'El curso solicitado se llama ' + curso.nombre +
 					' su identificador unico es ' + curso.id +
 					' tiene una duracion de ' + curso.duracion +
-					' y un costo de '+ curso.inversion + ' pesos colombianos'		
+					' y un costo de '+ curso.inversion + ' pesos colombianos' + '\n'	
 				   );		   
 }
 

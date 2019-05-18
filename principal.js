@@ -1,12 +1,21 @@
 const cursos = require ('./datosCursos');
+const estudiantes = require ('./opcionesInscripcion');
 
-//console.log(cursos.ofertaCursos);
-//console.log(cursos.cursoPorID(1));
-//console.log(cursos.describirCurso(cursos.cursoPorID(1)));
-//console.log(cursos.todosCursos());
+const argv = require ('yargs')
+				.command('inscribir','Realizar proceso de inscripcion',estudiantes.opciones)
+				.argv;
 
-for (i = 1; i <= (cursos.ofertaCursos).length; i++) {  
-  cursos.describirCursoDelay(cursos.cursoPorID(i),function(resultado){
-	console.log(resultado);
-  });
+if (typeof(argv.nombreInteresado) !== 'undefined' ) {
+	
+	cursos.describirCurso(cursos.cursoPorID(argv.c));
+	
+	estudiantes.crearArchivoInscripcion(argv.ced,cursos.cursoPorID(argv.c));
+
+}else{
+	for (i = 1; i <= (cursos.ofertaCursos).length; i++) {
+			cursos.describirCursoDelay(cursos.cursoPorID(i),function(resultado){
+			console.log(resultado);
+		});
+	}
 }
+	
